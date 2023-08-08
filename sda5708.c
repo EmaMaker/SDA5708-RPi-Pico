@@ -31,9 +31,10 @@ uint8_t digit_lookup[] = {
 uint8_t BRIGHTNESS_LEVEL = 0b000;
 bool PEAK_CURRENT = 0b0;
 
-void sda5708_init(spi_inst_t *spi, int SPI_DATA_PIN, int SPI_CLOCK_PIN, int SPI_LOAD_PIN){
+void sda5708_init(spi_inst_t *spi, int SPI_DATA_PIN, int SPI_CLOCK_PIN, int SPI_LOAD_PIN, int
+	CLOCK_HZ){
     // Enable SPI 0 at 1 MHz and connect to GPIOs
-    spi_init(spi_default, 1000*1000);
+    spi_init(spi_default, CLOCK_HZ);
 
     gpio_set_function(SPI_DATA_PIN, GPIO_FUNC_SPI);
     gpio_set_function(SPI_CLOCK_PIN, GPIO_FUNC_SPI);

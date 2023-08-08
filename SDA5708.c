@@ -15,7 +15,8 @@ int main() {
 
     printf("SPI master example\n");
 
-    sda5708_init(spi_default, PICO_DEFAULT_SPI_TX_PIN, PICO_DEFAULT_SPI_SCK_PIN, PICO_DEFAULT_SPI_CSN_PIN);
+    sda5708_init(spi_default, PICO_DEFAULT_SPI_TX_PIN, PICO_DEFAULT_SPI_SCK_PIN,
+	    PICO_DEFAULT_SPI_CSN_PIN, 1000);
     sda5708_clear(spi_default);
 
     sda5708_set_brightness(spi_default, 3);
@@ -29,7 +30,6 @@ int main() {
 	i += a;
 	if( i >= 7 || i <= 0) a = -a;
 
-	sleep_ms(500);
     }*/
 
     uint8_t* buf[BUF_LEN] = {
